@@ -1,0 +1,189 @@
+Name,Description,Duration,Remote Testing Support,Adaptive Support,Link
+Numerical Reasoning Test,"Assesses the ability to interpret, analyze, and draw conclusions from numerical data",20 mins,Yes,Yes,https://www.shl.com/en/assessments/numerical-reasoning/
+Verbal Reasoning Test,"Measures comprehension and interpretation of written texts",25 mins,Yes,No,https://www.shl.com/en/assessments/verbal-reasoning/
+Logical Reasoning Test,"Assesses abstract and logical thinking using patterns and sequences",30 mins,Yes,Yes,https://www.shl.com/en/assessments/logical-reasoning/
+Cognitive Ability Test,"Comprehensive assessment of multiple reasoning abilities",40 mins,Yes,Yes,https://www.shl.com/en/assessments/cognitive-ability/
+Personality Questionnaire,"Analyzes personality traits for role fit",25 mins,Yes,Yes,https://www.shl.com/en/assessments/personality-questionnaire/
+Coding Simulation,"Assesses real-world programming and debugging ability",60 mins,Yes,Yes,https://www.shl.com/en/assessments/coding-simulation/
+Technical Skills Test,"Evaluates technical or job-specific knowledge",45 mins,Yes,No,https://www.shl.com/en/assessments/technical-skills/
+Python Coding Test,"Evaluates Python programming and problem-solving skills",30 mins,Yes,Yes,https://www.shl.com/en/assessments/coding-simulation/
+Java Coding Test,"Assesses Java development, syntax, and debugging skills",40 mins,Yes,Yes,https://www.shl.com/en/assessments/coding-simulation/
+SQL Skills Test,"Tests ability to query and manipulate relational databases",30 mins,Yes,No,https://www.shl.com/en/assessments/technical-skills/
+JavaScript Test,"Assesses knowledge of JavaScript syntax and DOM manipulation",25 mins,Yes,No,https://www.shl.com/en/assessments/technical-skills/
+Workplace Behavior Assessment,"Measures workplace behaviors, motivation, and culture fit",25 mins,Yes,No,https://www.shl.com/en/assessments/workplace-behavior/
+Situational Judgment Test,"Evaluates judgment and decision-making in workplace scenarios",20 mins,Yes,No,https://www.shl.com/en/assessments/situational-judgement/
+Inductive Reasoning Test,"Assesses pattern recognition and problem-solving",30 mins,Yes,Yes,https://www.shl.com/en/assessments/inductive-reasoning/
+Deductive Reasoning Test,"Assesses ability to apply general rules to specific problems",30 mins,Yes,Yes,https://www.shl.com/en/assessments/deductive-reasoning/
+Gamified Assessment,"Uses game-like tasks to assess problem-solving and memory",30 mins,Yes,Yes,https://www.shl.com/en/assessments/gamified-assessment/
+Leadership Assessment,"Evaluates leadership potential and decision-making",50 mins,Yes,Yes,https://www.shl.com/en/assessments/leadership/
+Sales Skills Assessment,"Measures persuasion, negotiation, and client engagement",35 mins,Yes,No,https://www.shl.com/en/assessments/sales-skills/
+Customer Service Test,"Assesses communication and empathy in customer roles",30 mins,Yes,No,https://www.shl.com/en/assessments/customer-service/
+Critical Thinking Test,"Assesses ability to evaluate arguments and identify assumptions",35 mins,Yes,Yes,https://www.shl.com/en/assessments/critical-thinking/
+Problem Solving Test,"Evaluates analytical and logical reasoning skills",30 mins,Yes,Yes,https://www.shl.com/en/assessments/problem-solving/
+Business Decision Making Test,"Assesses strategic thinking and decision-making abilities",40 mins,Yes,No,https://www.shl.com/en/assessments/business-decision-making/
+Project Management Test,"Measures project planning, risk assessment, and execution skills",45 mins,Yes,No,https://www.shl.com/en/assessments/project-management/
+Negotiation Skills Test,"Evaluates ability to negotiate, influence, and resolve conflicts",35 mins,Yes,Yes,https://www.shl.com/en/assessments/negotiation-skills/
+Attention to Detail Test,"Measures accuracy and focus on details in work tasks",25 mins,Yes,No,https://www.shl.com/en/assessments/attention-to-detail/
+Work Ethic and Integrity Test,"Assesses honesty, responsibility, and work commitment",25 mins,Yes,No,https://www.shl.com/en/assessments/work-ethic-integrity/
+Collaboration and Teamwork Test,"Measures ability to work effectively in teams",30 mins,Yes,Yes,https://www.shl.com/en/assessments/collaboration-teamwork/
+Data Interpretation Test,"Assesses ability to analyze and draw conclusions from complex data",40 mins,Yes,Yes,https://www.shl.com/en/assessments/data-interpretation/
+UX/UI Design Skills Test,"Evaluates knowledge of user experience and interface design principles",50 mins,Yes,No,https://www.shl.com/en/assessments/ux-ui-design/
+Marketing Aptitude Test,"Measures understanding of marketing concepts and consumer behavior",35 mins,Yes,Yes,https://www.shl.com/en/assessments/marketing-aptitude/
+HR Competency Test,"Assesses knowledge of HR principles, policies, and employee management",40 mins,Yes,Yes,https://www.shl.com/en/assessments/hr-competency/
+Financial Analysis Test,"Measures ability to interpret financial statements and assess risk",45 mins,Yes,No,https://www.shl.com/en/assessments/financial-analysis/
+Entrepreneurial Mindset Test,"Evaluates risk-taking, adaptability, and business acumen",30 mins,Yes,Yes,https://www.shl.com/en/assessments/entrepreneurial-mindset/
+Ethical Decision-Making Test,"Assesses ability to make ethical choices in complex situations",30 mins,Yes,Yes,https://www.shl.com/en/assessments/ethical-decision-making/
+Legal Reasoning Test,"Evaluates knowledge of legal principles and logical reasoning",40 mins,Yes,No,https://www.shl.com/en/assessments/legal-reasoning/
+AI and Machine Learning Test,"Measures understanding of AI models, algorithms, and applications",50 mins,Yes,Yes,https://www.shl.com/en/assessments/ai-machine-learning/
+Cybersecurity Awareness Test,"Assesses knowledge of cybersecurity threats and best practices",30 mins,Yes,Yes,https://www.shl.com/en/assessments/cybersecurity-awareness/
+Software Development Principles Test,"Evaluates knowledge of software design, architecture, and methodologies",50 mins,Yes,No,https://www.shl.com/en/assessments/software-development/
+Healthcare Knowledge Test,"Measures understanding of healthcare policies, ethics, and procedures",40 mins,Yes,Yes,https://www.shl.com/en/assessments/healthcare-knowledge/
+Supply Chain Management Test,"Assesses logistics, procurement, and supply chain optimization skills",45 mins,Yes,Yes,https://www.shl.com/en/assessments/supply-chain-management/
+Time Management Test,"Assesses ability to prioritize tasks and manage time effectively",25 mins,Yes,Yes,https://www.shl.com/en/assessments/time-management/
+Product Management Test,"Evaluates ability to define strategy, roadmap, and feature execution",45 mins,Yes,No,https://www.shl.com/en/assessments/product-management/
+Basic Programming Concepts Test,"Tests understanding of data types, loops, and conditionals",30 mins,Yes,No,https://www.shl.com/en/assessments/technical-skills/
+Full-Stack Developer Test,"Assesses front-end and back-end skills using realistic problems",60 mins,Yes,Yes,https://www.shl.com/en/assessments/coding-simulation/
+Client Engagement Skills Test,"Measures effectiveness in client communications and relationship building",35 mins,Yes,Yes,https://www.shl.com/en/assessments/sales-skills/
+Data Analysis Skills Test,"Tests analytical thinking and Excel/data tools usage",30 mins,Yes,Yes,https://www.shl.com/en/assessments/data-interpretation/
+Innovation and Creativity Test,"Assesses out-of-the-box thinking and creative problem-solving",30 mins,Yes,Yes,https://www.shl.com/en/assessments/innovation-creativity/
+Language Proficiency Test,"Measures proficiency in English and other languages",30 mins,Yes,No,https://www.shl.com/en/assessments/language/
+DevOps Engineering Test,"Evaluates CI/CD, containerization, and infrastructure as code skills",50 mins,Yes,Yes,https://www.shl.com/en/assessments/devops/
+Cloud Architecture Assessment,Measures ability to design scalable and secure cloud solutions,60 mins,Yes,Yes,https://www.shl.com/en/assessments/cloud-architecture/
+React.js Development Test,"Assesses knowledge of React hooks, state management, and component architecture",40 mins,Yes,Yes,https://www.shl.com/en/assessments/reactjs/
+Node.js Backend Test,"Evaluates asynchronous programming, API design, and database integration in Node",45 mins,Yes,Yes,https://www.shl.com/en/assessments/nodejs/
+Mobile App Development (iOS/Swift),Tests proficiency in Swift and iOS application development,50 mins,Yes,No,https://www.shl.com/en/assessments/mobile-dev/
+Android Development Test,Assesses Kotlin/Java skills for Android app ecosystems,50 mins,Yes,No,https://www.shl.com/en/assessments/mobile-dev/
+Quality Assurance & Testing,Evaluates manual and automated testing strategies and tools,40 mins,Yes,Yes,https://www.shl.com/en/assessments/qa-testing/
+Data Science & Analytics,"Measures statistical modeling, data cleaning, and visualization skills",60 mins,Yes,Yes,https://www.shl.com/en/assessments/data-science/
+Emotional Intelligence (EQ) Test,"Assesses self-awareness, empathy, and social skills in professional settings",20 mins,Yes,No,https://www.shl.com/en/assessments/eq/
+Growth Mindset Assessment,"Measures openness to learning, resilience, and adaptability",15 mins,Yes,No,https://www.shl.com/en/assessments/growth-mindset/
+Agile & Scrum Master Test,"Evaluates knowledge of Agile ceremonies, roles, and software delivery",30 mins,Yes,No,https://www.shl.com/en/assessments/agile-scrum/
+Cybersecurity Governance,"Tests knowledge of security policies, compliance, and risk management",45 mins,Yes,Yes,https://www.shl.com/en/assessments/cybersecurity/
+Machine Learning Engineering,"Assesses deep learning, model deployment, and optimization skills",60 mins,Yes,Yes,https://www.shl.com/en/assessments/machine-learning/
+Mechanical Aptitude Test,Evaluates understanding of physical principles and mechanical systems,30 mins,Yes,Yes,https://www.shl.com/en/assessments/mechanical-aptitude/
+Spatial Reasoning Assessment,Measures ability to visualize and manipulate 3D objects,25 mins,Yes,Yes,https://www.shl.com/en/assessments/spatial-reasoning/
+Retail Sales & Service,Assesses customer interaction and sales techniques in retail environments,30 mins,Yes,No,https://www.shl.com/en/assessments/retail/
+Financial Accounting Level 1,Tests fundamental accounting principles and data entry accuracy,40 mins,Yes,No,https://www.shl.com/en/assessments/accounting/
+Aviation Safety Awareness,Evaluates knowledge of safety protocols in the aviation industry,30 mins,Yes,No,https://www.shl.com/en/assessments/aviation/
+Hospitality Management Test,"Measures guest relations, staff management, and operational efficiency",40 mins,Yes,No,https://www.shl.com/en/assessments/hospitality/
+Legal Assistant Competency,"Assesses legal research, document drafting, and administrative skills",45 mins,Yes,No,https://www.shl.com/en/assessments/legal/
+Remote Collaboration Skills,Evaluates effectiveness in using digital tools for team communication,20 mins,Yes,No,https://www.shl.com/en/assessments/remote-work/
+Public Speaking Proficiency,Measures presentation skills and audience engagement,30 mins,Yes,No,https://www.shl.com/en/assessments/communication/
+Intercultural Communication,Assesses ability to work effectively across diverse cultural backgrounds,25 mins,Yes,No,https://www.shl.com/en/assessments/culture/
+Conflict Resolution Mastery,Evaluates techniques for de-escalating and resolving workplace disputes,30 mins,Yes,No,https://www.shl.com/en/assessments/soft-skills/
+Brand Strategy Assessment,Tests understanding of brand positioning and market differentiation,40 mins,Yes,Yes,https://www.shl.com/en/assessments/marketing/
+E-commerce Strategy Test,"Measures knowledge of online conversion, SEO, and digital sales",45 mins,Yes,Yes,https://www.shl.com/en/assessments/ecommerce/
+Vulnerability Assessment,Assesses ability to identify and mitigate software security flaws,50 mins,Yes,Yes,https://www.shl.com/en/assessments/security/
+Kubernetes & Orchestration,"Evaluates scaling, scheduling, and managing containerized applications",50 mins,Yes,Yes,https://www.shl.com/en/assessments/kubernetes/
+Blockchain Fundamentals,"Tests knowledge of distributed ledgers, smart contracts, and security",40 mins,Yes,No,https://www.shl.com/en/assessments/blockchain/
+R Programming for Stats,Assesses data manipulation and statistical analysis using R,45 mins,Yes,Yes,https://www.shl.com/en/assessments/r-programming/
+TypeScript Development,"Evaluates static typing, advanced types, and TS configuration",35 mins,Yes,Yes,https://www.shl.com/en/assessments/typescript/
+Svelte & Modern Frameworks,Tests knowledge of reactive programming and Svelte architecture,40 mins,Yes,Yes,https://www.shl.com/en/assessments/svelte/
+Microservices Architecture,Assesses design patterns for distributed and decoupled systems,50 mins,Yes,Yes,https://www.shl.com/en/assessments/architecture/
+Network Security Engineer,"Evaluates firewalls, VPNs, and intrusion detection systems",55 mins,Yes,No,https://www.shl.com/en/assessments/networking/
+Big Data Technologies,"Tests knowledge of Hadoop, Spark, and large-scale data processing",55 mins,Yes,Yes,https://www.shl.com/en/assessments/big-data/
+Natural Language Processing,"Assesses text tokenization, sentiment analysis, and LLM fine-tuning",60 mins,Yes,Yes,https://www.shl.com/en/assessments/nlp/
+Computer Vision Concepts,"Evaluates image processing, object detection, and CNNs",60 mins,Yes,Yes,https://www.shl.com/en/assessments/computer-vision/
+Go Programming (Golang),"Tests concurrency, interfaces, and efficient coding in Go",45 mins,Yes,Yes,https://www.shl.com/en/assessments/golang/
+Rust Systems Programming,"Assesses memory safety, ownership, and performance in Rust",60 mins,Yes,Yes,https://www.shl.com/en/assessments/rust/
+C# .NET Development,"Evaluates knowledge of .NET Core, LINQ, and async/await in C#",45 mins,Yes,Yes,https://www.shl.com/en/assessments/dotnet/
+SwiftUI Mastery,Tests ability to build declarative interfaces for Apple platforms,40 mins,Yes,No,https://www.shl.com/en/assessments/swiftui/
+Flutter Cross-Platform Dev,"Assesses widget trees, state management, and Dart for Flutter",45 mins,Yes,No,https://www.shl.com/en/assessments/flutter/
+API Security & Testing,"Evaluates OAuth2, JWT, and testing against OWASP Top 10 for APIs",45 mins,Yes,Yes,https://www.shl.com/en/assessments/api-security/
+Infrastructure as Code (Terraform),Tests ability to manage resources using declarative configuration,45 mins,Yes,Yes,https://www.shl.com/en/assessments/terraform/
+AWS Solutions Architect,Measures proficiency in designing secure and robust apps on AWS,65 mins,Yes,Yes,https://www.shl.com/en/assessments/aws/
+Azure Cloud Competency,"Evaluates management of Azure services, storage, and networking",65 mins,Yes,Yes,https://www.shl.com/en/assessments/azure/
+Google Cloud Platform (GCP),"Tests knowledge of App Engine, BigQuery, and GCP networking",65 mins,Yes,Yes,https://www.shl.com/en/assessments/gcp/
+Technical Writing & Documentation,Assesses ability to communicate complex info clearly and accurately,40 mins,Yes,No,https://www.shl.com/en/assessments/technical-writing/
+Business Analysis Professional,"Measures requirement gathering, stakeholder management, and process modeling",50 mins,Yes,No,https://www.shl.com/en/assessments/business-analysis/
+IT Support Specialist,"Evaluates troubleshooting, OS knowledge, and hardware maintenance",40 mins,Yes,No,https://www.shl.com/en/assessments/it-support/
+Database Administration (DBA),"Tests optimization, indexing, backup, and recovery in SQL/NoSQL",55 mins,Yes,No,https://www.shl.com/en/assessments/dba/
+SAS Statistical Analysis,Assesses data processing and statistical reporting using SAS,60 mins,Yes,Yes,https://www.shl.com/en/assessments/sas/
+Salesforce Administrator,"Evaluates knowledge of Salesforce config, profiles, and automation",50 mins,Yes,No,https://www.shl.com/en/assessments/salesforce/
+System Administration (Linux),"Tests shell scripting, user management, and server hardening",50 mins,Yes,No,https://www.shl.com/en/assessments/linux/
+C++ High Performance Code,"Assesses memory management, STL, and low-level optimization",60 mins,Yes,Yes,https://www.shl.com/en/assessments/cpp/
+Embedded Systems Design,"Evaluates firmware development, RTOS, and hardware constraints",60 mins,Yes,No,https://www.shl.com/en/assessments/embedded/
+Verilog / Hardware Design,Tests knowledge of FPGA design and RTL simulation using Verilog,60 mins,Yes,No,https://www.shl.com/en/assessments/hardware/
+Quantitative Finance Test,Measures mathematical modeling and risk assessment in trading,65 mins,Yes,Yes,https://www.shl.com/en/assessments/quant-finance/
+Actuarial Science Awareness,Evaluates statistical and financial risk modeling knowledge,60 mins,Yes,Yes,https://www.shl.com/en/assessments/actuary/
+Medical Billing & Coding,"Tests knowledge of ICD-10, CPT codes, and healthcare regulations",45 mins,Yes,No,https://www.shl.com/en/assessments/medical-coding/
+Pharmaceutical Sales Skills,Assesses medical product knowledge and compliance-driven sales,40 mins,Yes,No,https://www.shl.com/en/assessments/pharma/
+Human Resources Law (US),"Evaluates knowledge of FMLA, ADA, and FLSA regulations",45 mins,Yes,No,https://www.shl.com/en/assessments/hr-law/
+International Trade Compliance,"Tests knowledge of export controls, tariffs, and sanctions",45 mins,Yes,No,https://www.shl.com/en/assessments/compliance/
+Journalism & Media Ethics,"Assesses reporting accuracy, source verity, and ethical standards",40 mins,Yes,No,https://www.shl.com/en/assessments/journalism/
+Video Editing & Production,"Evaluates knowledge of NLE software, color grading, and export formats",50 mins,Yes,No,https://www.shl.com/en/assessments/video-production/
+3D Modeling and Animation,Tests proficiency in Blender/Maya for character and environment design,60 mins,Yes,No,https://www.shl.com/en/assessments/3d-design/
+Game Design Fundamentals,"Assesses mechanics design, level progression, and monetization models",50 mins,Yes,No,https://www.shl.com/en/assessments/game-design/
+Music Theory & Composition,"Evaluates knowledge of harmony, rhythm, and digital audio workstations",45 mins,Yes,No,https://www.shl.com/en/assessments/music/
+Sports Coaching Mentality,"Measures leadership, tactical planning, and athlete motivation",40 mins,Yes,No,https://www.shl.com/en/assessments/sports/
+Fitness Instructor Theory,"Tests knowledge of anatomy, exercise science, and safety",40 mins,Yes,No,https://www.shl.com/en/assessments/fitness/
+Environmental Science Awareness,"Evaluates knowledge of sustainability, climate change, and ecology",35 mins,Yes,No,https://www.shl.com/en/assessments/env-science/
+Sustainable Supply Chain,Assesses ability to integrate green practices into logistics,45 mins,Yes,Yes,https://www.shl.com/en/assessments/sustainability/
+Architecture Design Principles,"Measures knowledge of structural integrity, aesthetics, and codes",50 mins,Yes,No,https://www.shl.com/en/assessments/architecture-design/
+Civil Engineering Foundations,"Tests knowledge of materials, statics, and survey techniques",55 mins,Yes,No,https://www.shl.com/en/assessments/civil-eng/
+Electrical Engineering Mastery,"Assesses circuit design, power systems, and signal processing",55 mins,Yes,No,https://www.shl.com/en/assessments/electrical-eng/
+Chemical Engineering Concepts,"Evaluates thermodynamics, fluid dynamics, and process safety",60 mins,Yes,No,https://www.shl.com/en/assessments/chemical-eng/
+Biotechnology Research Test,"Measures knowledge of lab protocols, genomics, and clinical trials",60 mins,Yes,No,https://www.shl.com/en/assessments/biotech/
+Psychology Professional Test,"Assesses clinical knowledge, ethics, and research methodologies",50 mins,Yes,No,https://www.shl.com/en/assessments/psychology/
+Sociology and Social Policy,Evaluates understanding of social structures and welfare systems,45 mins,Yes,No,https://www.shl.com/en/assessments/sociology/
+Education & Teaching Methods,"Tests classroom management, pedagogy, and assessment strategies",45 mins,Yes,No,https://www.shl.com/en/assessments/education/
+Online Tutoring Skills,Assesses engagement and effectiveness in virtual learning contexts,35 mins,Yes,No,https://www.shl.com/en/assessments/virtual-teaching/
+Customer Success Management,"Measures retention strategies, upsell ability, and account health",40 mins,Yes,Yes,https://www.shl.com/en/assessments/customer-success/
+Crisis Management Specialist,"Evaluates rapid response, communication, and mitigation in crises",45 mins,Yes,Yes,https://www.shl.com/en/assessments/crisis/
+Public Relations Strategy,"Tests media relations, press release drafting, and reputation management",40 mins,Yes,No,https://www.shl.com/en/assessments/pr/
+Corporate Social Responsibility,Measures knowledge of ESG metrics and community engagement,35 mins,Yes,No,https://www.shl.com/en/assessments/csr/
+Logistics and Warehouse Ops,"Evaluates inventory control, shipping, and safety protocols",40 mins,Yes,No,https://www.shl.com/en/assessments/logistics/
+Quality Control Inspector,Tests attention to detail and adherence to manufacturing standards,35 mins,Yes,No,https://www.shl.com/en/assessments/quality-control/
+Safety Officer Competency,Assesses knowledge of OSHA/HSE standards and incident reporting,45 mins,Yes,No,https://www.shl.com/en/assessments/safety/
+Administrative Professional,"Measures scheduling, filing, and office software proficiency",30 mins,Yes,No,https://www.shl.com/en/assessments/admin/
+Executive Assistant Skills,"Evaluates advanced planning, travel management, and confidentiality",40 mins,Yes,No,https://www.shl.com/en/assessments/executive-assistant/
+Bookkeeping and Payroll,Tests accuracy in transaction recording and payroll compliance,40 mins,Yes,No,https://www.shl.com/en/assessments/payroll/
+Tax Preparation Assistant,Assesses knowledge of tax codes and document organization,45 mins,Yes,No,https://www.shl.com/en/assessments/tax/
+Real Estate Sales License,"Tests knowledge of property law, appraisal, and sales ethics",50 mins,Yes,No,https://www.shl.com/en/assessments/real-estate/
+Insurance Claims Adjuster,Evaluates damage assessment and policy interpretation skills,45 mins,Yes,No,https://www.shl.com/en/assessments/insurance/
+Travel Agency Consultant,"Measures routing knowledge, ticketing, and customer destination advice",35 mins,Yes,No,https://www.shl.com/en/assessments/travel/
+Event Planning Mastery,"Assesses budget management, vendor coordination, and timeline execution",45 mins,Yes,No,https://www.shl.com/en/assessments/event-planning/
+Interior Design Aptitude,"Evaluates spatial aesthetics, material knowledge, and floor planning",45 mins,Yes,No,https://www.shl.com/en/assessments/interior-design/
+Fashion Design & Textiles,Tests knowledge of garment construction and fabric properties,50 mins,Yes,No,https://www.shl.com/en/assessments/fashion/
+Culinary Arts Theory,"Assesses food safety, nutrition, and international cuisine knowledge",40 mins,Yes,No,https://www.shl.com/en/assessments/culinary/
+Bakery and Pastry Skills,Evaluates precision in baking and dessert presentation,40 mins,Yes,No,https://www.shl.com/en/assessments/bakery/
+Agriculture and Crop Science,"Tests knowledge of soil health, irrigation, and pest management",40 mins,Yes,No,https://www.shl.com/en/assessments/agriculture/
+Advanced Python: Metaprogramming,"Evaluates expertise in decorators, metaclasses, and dynamic attribute access",45 mins,Yes,Yes,https://www.shl.com/en/assessments/python-advanced/
+Python for Data Engineering,"Assesses ETL, PySpark, and large-scale data processing skills",55 mins,Yes,Yes,https://www.shl.com/en/assessments/python-data-eng/
+Django Framework Mastery,"Evaluates ORM, middleware, and security best practices in Django",45 mins,Yes,No,https://www.shl.com/en/assessments/django/
+FastAPI & Async Python,"Measures proficiency in Pydantic, dependency injection, and async/await",40 mins,Yes,Yes,https://www.shl.com/en/assessments/fastapi/
+Scientific Computing with NumPy/SciPy,"Tests mathematical and scientific processing abilities in Python",40 mins,Yes,No,https://www.shl.com/en/assessments/python-scientific/
+Python Scripting for DevOps,"Evaluates automation, subprocess handling, and API integration skills",35 mins,Yes,No,https://www.shl.com/en/assessments/python-devops/
+Enterprise Java: Spring Boot,"Assesses Spring Security, JPA, and microservices architecture in Java",50 mins,Yes,Yes,https://www.shl.com/en/assessments/spring-boot/
+Java Multithreading & Concurrency,"Tests knowledge of executors, locks, and parallel streams",45 mins,Yes,Yes,https://www.shl.com/en/assessments/java-concurrency/
+Hibernate & JPA Fundamentals,"Evaluates entity mapping, caching strategies, and JPQL",40 mins,Yes,No,https://www.shl.com/en/assessments/hibernate/
+JVM Internals & Performance Tuning,"Measures understanding of GC, JIT, and memory management",60 mins,Yes,Yes,https://www.shl.com/en/assessments/jvm-tuning/
+Java Design Patterns,"Tests ability to implement Creational, Structural, and Behavioral patterns",45 mins,Yes,No,https://www.shl.com/en/assessments/java-patterns/
+Kotlin for Java Developers,"Assesses interop, null-safety, and coroutines in Kotlin",40 mins,Yes,No,https://www.shl.com/en/assessments/kotlin/
+SQL Query Optimization,"Evaluates execution plans, indexing, and query refactoring",45 mins,Yes,Yes,https://www.shl.com/en/assessments/sql-optimization/
+PostgreSQL Administration,"Tests partitioning, VACUUM, and replication in Postgres",50 mins,Yes,No,https://www.shl.com/en/assessments/postgresql/
+Database Schema Design,"Measures normalization, denormalization, and ER modeling",45 mins,Yes,No,https://www.shl.com/en/assessments/db-design/
+NoSQL vs SQL Architectures,"Evaluates trade-offs between relational and document/graph databases",40 mins,Yes,No,https://www.shl.com/en/assessments/db-architectures/
+Data Warehousing with BigQuery,"Tests knowledge of partitioned tables, slots, and OLAP queries",45 mins,Yes,Yes,https://www.shl.com/en/assessments/bigquery/
+SQL for Data Analytics,"Assesses window functions, CTEs, and complex aggregations",40 mins,Yes,No,https://www.shl.com/en/assessments/sql-analytics/
+Python Flask Web Development,"Measures Blueprints, Jinja2, and simple API design",35 mins,Yes,No,https://www.shl.com/en/assessments/flask/
+Pandas Data Manipulation Mastery,"Evaluates GroupBy, Merging, and Time Series analysis in Pandas",40 mins,Yes,Yes,https://www.shl.com/en/assessments/pandas/
+Java Unit Testing with JUnit/Mockito,"Tests TDD, mocking, and code coverage knowledge",40 mins,Yes,No,https://www.shl.com/en/assessments/java-testing/
+Python Pytest Mastery,"Evaluates fixtures, parametrizations, and plugin usage",35 mins,Yes,No,https://www.shl.com/en/assessments/pytest/
+Apache Spark with Scala/Java,"Assesses RDDs, DataFrames, and Spark SQL architecture",55 mins,Yes,Yes,https://www.shl.com/en/assessments/spark/
+Redis Data Structures & Performance,"Measures knowledge of Pub/Sub, Streams, and caching patterns",35 mins,Yes,No,https://www.shl.com/en/assessments/redis/
+Kafka Event Streaming,"Evaluates Producer/Consumer configs, Partitions, and KStream",50 mins,Yes,Yes,https://www.shl.com/en/assessments/kafka/
+TensorFlow Deep Learning,"Tests neural network construction, training, and deployment",60 mins,Yes,Yes,https://www.shl.com/en/assessments/tensorflow/
+PyTorch Research Assessment,"Evaluates Tensors, Autograd, and deep learning model design",60 mins,Yes,Yes,https://www.shl.com/en/assessments/pytorch/
+MySQL Database Clustering,"Measures HA, InnoDB internals, and replication lag handling",50 mins,Yes,No,https://www.shl.com/en/assessments/mysql/
+Java Reactive Programming (Project Reactor),"Tests Mono, Flux, and backpressure handling",45 mins,Yes,Yes,https://www.shl.com/en/assessments/reactive-java/
+Python Microservices with gRPC,"Evaluates Protobuf, streaming, and inter-service communication",45 mins,Yes,Yes,https://www.shl.com/en/assessments/python-grpc/
+Advanced SQL: Stored Procedures & Triggers,"Tests PL/SQL, T-SQL, and procedural database logic",45 mins,Yes,No,https://www.shl.com/en/assessments/sql-pl/
+Spring Cloud & Distributed Systems,"Measures service discovery, config server, and circuit breakers",55 mins,Yes,Yes,https://www.shl.com/en/assessments/spring-cloud/
+Elasticsearch Indexing & Search,"Evaluates mapping, analyzers, and DSL query optimization",45 mins,Yes,No,https://www.shl.com/en/assessments/elasticsearch/
+Python Security & Cryptography,"Tests knowledge of hashing, encryption libs, and secure coding",40 mins,Yes,No,https://www.shl.com/en/assessments/python-security/
+GraphQL API Design,"Measures knowledge of schemas, resolvers, and SDL in Java/Python",45 mins,Yes,Yes,https://www.shl.com/en/assessments/graphql/
+Maven & Gradle Build Systems,"Tests dependency management and build lifecycle concepts",30 mins,Yes,No,https://www.shl.com/en/assessments/build-systems/
+Python GUI Development (PyQt/Tkinter),"Evaluates event loops, signal-slot, and desktop UI design",40 mins,Yes,No,https://www.shl.com/en/assessments/python-gui/
+SQL Database Migration Strategies,"Measures zero-downtime migration and schema evolution skills",45 mins,Yes,No,https://www.shl.com/en/assessments/db-migration/
+High-Availability Database Design,"Tests sharding, multi-regional setups, and failover logic",55 mins,Yes,Yes,https://www.shl.com/en/assessments/ha-design/
