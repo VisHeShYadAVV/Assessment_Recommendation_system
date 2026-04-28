@@ -51,74 +51,217 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 relative selection:bg-red-500/30 w-full font-sans">
-      
-      {/* Hero Section */}
-      <div className="relative w-full min-h-[100vh] flex flex-col items-center justify-center pb-20 pt-24">
-        {/* Background Image with Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000")' }}
+    <div className="min-h-screen relative selection:bg-indigo-500/30 w-full font-sans">
+
+      {/* ══ HERO SECTION ══ */}
+      <section className="relative w-full min-h-[96vh] flex flex-col overflow-hidden">
+
+        {/* ── Background ── */}
+        <div className="absolute inset-0 z-0">
+          {/* Photo */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000")' }}
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0" style={{ background: 'rgba(8,8,20,0.72)' }} />
+          {/* Subtle colour vignette — top purple tint for depth */}
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 70%)' }} />
+          {/* Bottom fade into dark body */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(8,8,20,0.9) 75%, #0a0a18 100%)' }}
+          />
+        </div>
+
+        {/* ── Navbar ── */}
+        <motion.header
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative z-50 flex justify-between items-center w-full px-6 md:px-10 pt-7"
+          style={{ maxWidth: '1200px', margin: '0 auto', alignSelf: 'center', width: '100%' }}
         >
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-
-        {/* Top Navbar */}
-        <header className="absolute top-0 left-0 right-0 z-50 p-6 flex justify-between items-center max-w-7xl mx-auto w-full">
-          <div className="text-white text-3xl font-bold tracking-tight">AssessMe</div>
-          <div className="flex items-center gap-6">
-            <button
-              onClick={() => navigate('/practice')}
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/40 px-6 py-2 flex items-center gap-2 transition-colors font-medium backdrop-blur-sm shadow-sm"
+          {/* Logo */}
+          <div className="flex items-center gap-2.5">
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
             >
-              <Bot size={18} />
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span className="text-white text-xl font-bold tracking-tight">AssessMe</span>
+          </div>
+
+          {/* Nav actions */}
+          <div className="flex items-center gap-3">
+            <motion.button
+              onClick={() => navigate('/practice')}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
+              style={{
+                background: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.14)',
+                backdropFilter: 'blur(12px)',
+              }}
+            >
+              <Bot size={16} />
               <span>Practice Interview</span>
-            </button>
+            </motion.button>
           </div>
-        </header>
+        </motion.header>
 
-        {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 w-full flex flex-col items-center mt-12">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-white leading-tight drop-shadow-md">
-            Find your perfect assessment
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow">
-            Discover and practice tech assessments tailored for your dream role globally.
-          </p>
+        {/* ── Hero Body ── */}
+        <div
+          className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-5"
+          style={{ paddingTop: '80px', paddingBottom: '140px', maxWidth: '1100px', margin: '0 auto', width: '100%' }}
+        >
+          {/* Eyebrow pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            className="inline-flex items-center gap-2 mb-7"
+          >
+            <span
+              className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full"
+              style={{
+                background: 'rgba(99,102,241,0.15)',
+                border: '1px solid rgba(99,102,241,0.3)',
+                color: '#a5b4fc',
+                letterSpacing: '0.1em',
+              }}
+            >
+              <Sparkles size={12} />
+              AI-Powered Assessment Discovery
+            </span>
+          </motion.div>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white/90 text-sm border border-white/10">
-              <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Verified Assessments
-            </div>
-            <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white/90 text-sm border border-white/10">
-              <Bot className="w-4 h-4 text-purple-400" />
-              24x7 AI Coach
-            </div>
-            <div className="flex items-center gap-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white/90 text-sm border border-white/10">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              Smart Matching
-            </div>
-          </div>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.2, ease: 'easeOut' }}
+            className="font-extrabold leading-tight mb-5"
+            style={{
+              fontSize: 'clamp(2.4rem, 5.5vw, 3.6rem)',
+              color: '#f1f5f9',
+              letterSpacing: '-0.02em',
+              textShadow: '0 2px 24px rgba(0,0,0,0.5)',
+            }}
+          >
+            Find Your{' '}
+            <span
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Perfect Assessment
+            </span>
+          </motion.h1>
 
-          {/* Search Bar Container */}
-          <div className="w-full max-w-4xl mx-auto">
+          {/* Subheading */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.32, ease: 'easeOut' }}
+            className="mb-10 leading-relaxed"
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+              color: 'rgba(203,213,225,0.9)',
+              maxWidth: '600px',
+              textShadow: '0 1px 8px rgba(0,0,0,0.3)',
+            }}
+          >
+            Discover and practice tech assessments intelligently matched to your dream role — powered by AI.
+          </motion.p>
+
+          {/* Search Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.44, ease: 'easeOut' }}
+            className="w-full"
+            style={{ maxWidth: '680px' }}
+          >
             <SearchBar onSearch={handleSearch} isLoading={isLoading} />
-            
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-sm text-white/80">
-              <span>Popular Searches:</span>
-              <button onClick={() => handleSearch('Software Engineer')} className="bg-black/30 hover:bg-black/50 border border-white/10 rounded-full px-4 py-1 transition-colors">Software Engineer &gt;</button>
-              <button onClick={() => handleSearch('Data Analyst')} className="bg-black/30 hover:bg-black/50 border border-white/10 rounded-full px-4 py-1 transition-colors">Data Analyst &gt;</button>
-              <button onClick={() => handleSearch('Machine Learning')} className="bg-black/30 hover:bg-black/50 border border-white/10 rounded-full px-4 py-1 transition-colors">Machine Learning &gt;</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
 
-      <main className="w-full max-w-6xl mx-auto px-8 py-12 flex flex-col items-center relative z-10">
-        {/* Results Section */}
-        <div className="w-full relative z-10 pt-8 mt-4">
+          {/* Popular searches */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.56, ease: 'easeOut' }}
+            className="mt-5 flex flex-wrap items-center justify-center gap-2"
+          >
+            <span className="text-xs font-medium" style={{ color: 'rgba(148,163,184,0.8)' }}>Try:</span>
+            {['Software Engineer', 'Data Analyst', 'Machine Learning'].map((term) => (
+              <motion.button
+                key={term}
+                onClick={() => handleSearch(term)}
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.12)' }}
+                whileTap={{ scale: 0.96 }}
+                className="text-xs font-medium px-3.5 py-1.5 rounded-full transition-colors"
+                style={{
+                  background: 'rgba(255,255,255,0.07)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  color: 'rgba(203,213,225,0.9)',
+                }}
+              >
+                {term}
+              </motion.button>
+            ))}
+          </motion.div>
+
+          {/* Trust badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.68, ease: 'easeOut' }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          >
+            {[
+              { icon: <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>, label: 'Verified Assessments', color: '#4ade80' },
+              { icon: <Bot size={14} />, label: '24×7 AI Coach', color: '#c084fc' },
+              { icon: <Sparkles size={13} />, label: 'Smart Matching', color: '#fbbf24' },
+            ].map(({ icon, label, color }) => (
+              <motion.div
+                key={label}
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
+                className="inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full cursor-default transition-colors"
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  color: 'rgba(226,232,240,0.85)',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <span style={{ color }}>{icon}</span>
+                {label}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Results Section ── overlaps hero with rounded top + shadow */}
+      <main
+        className="w-full relative z-20"
+        style={{
+          marginTop: '-80px',
+          borderTopLeftRadius: '32px',
+          borderTopRightRadius: '32px',
+          background: 'linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)',
+          boxShadow: '0 -20px 60px rgba(0,0,0,0.25)',
+        }}
+      >
+        <div className="w-full">
           
           {error && (
             <motion.div 
@@ -131,32 +274,41 @@ function Home() {
           )}
 
           {!isLoading && hasSearched && assessments.length > 0 && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex flex-col items-center justify-center gap-4 mb-10 pb-6 border-b border-gray-100"
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="results-header"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight text-center">
-                Continue Where You Left From
+                Recommended Assessments
               </h2>
-              <span className="text-[#ff4a5a] font-bold bg-red-50/50 px-6 py-2 rounded-full border border-red-100 text-sm">
-                Found {assessments.length} matches
-              </span>
+              <p className="text-gray-500 text-center text-base mt-2">Tailored matches based on your search</p>
+              <div className="flex justify-center mt-4">
+                <span className="inline-flex items-center gap-2 text-indigo-600 font-bold bg-indigo-50 px-5 py-2 rounded-full border border-indigo-100 text-sm">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  {assessments.length} matches found
+                </span>
+              </div>
             </motion.div>
           )}
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6 h-72 animate-pulse flex flex-col justify-between shadow-sm">
-                  <div>
-                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-                    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            <div className="assessments-container">
+              <div className="assessments-grid">
+                {[1, 2, 3].map((i) => (
+                  <div key={i}>
+                    <div className="bg-white rounded-2xl border border-gray-100 p-6 h-72 animate-pulse flex flex-col justify-between shadow-sm">
+                      <div>
+                        <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                        <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                        <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                      </div>
+                      <div className="h-12 bg-gray-200 rounded-xl w-full mt-4"></div>
+                    </div>
                   </div>
-                  <div className="h-12 bg-gray-200 rounded-xl w-full mt-4"></div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           ) : (
             hasSearched && (
@@ -164,25 +316,28 @@ function Home() {
                 {assessments.length > 0 ? (
                   <motion.div 
                      layout
-                     className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
+                     className="assessments-container"
                   >
-                    {assessments.map((item, i) => (
-                      <div key={`${item.assessment_name}-${i}`} className="w-full">
-                        <AssessmentCard assessment={item} index={i} />
-                      </div>
-                    ))}
+                    <div className="assessments-grid">
+                      {assessments.map((item, i) => (
+                        <div key={`${item.assessment_name}-${i}`}>
+                          <AssessmentCard assessment={item} index={i} />
+                        </div>
+                      ))}
+                    </div>
                   </motion.div>
                 ) : !error ? (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-center py-24 px-4 bg-white rounded-2xl shadow-sm border border-gray-100"
+                    className="text-center py-24 px-4 bg-white/70 backdrop-blur-sm rounded-3xl shadow-sm border border-white"
+                    style={{ maxWidth: '480px', margin: '40px auto' }}
                   >
-                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Search className="w-8 h-8 text-gray-400" />
+                    <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Search className="w-8 h-8 text-indigo-400" />
                     </div>
-                    <p className="text-2xl font-bold text-gray-900 mb-2">No recommendations found</p>
-                    <p className="text-gray-500">Try adjusting your search terms or using different keywords to find your perfect assessment.</p>
+                    <p className="text-2xl font-bold text-gray-900 mb-2">No matches found</p>
+                    <p className="text-gray-500 text-sm">Try adjusting your search terms or using different keywords to find your perfect assessment.</p>
                   </motion.div>
                 ) : null}
               </AnimatePresence>

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Send, RotateCcw, Bot, User, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, RotateCcw, Bot, User, ArrowLeft, Zap, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface Message {
@@ -9,17 +9,25 @@ interface Message {
   text: string;
 }
 
+const DIFFICULTY_COLORS: Record<string, { bg: string; text: string; dot: string }> = {
+  Easy:   { bg: 'rgba(16,185,129,0.1)',  text: '#059669', dot: '#10b981' },
+  Medium: { bg: 'rgba(245,158,11,0.1)',  text: '#d97706', dot: '#f59e0b' },
+  Hard:   { bg: 'rgba(239,68,68,0.1)',   text: '#dc2626', dot: '#ef4444' },
+};
+
 export const SmartKoachPage = () => {
   const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([
     { id: '1', sender: 'ai', text: "Hello! I'm SmartKoach, your AI Interview Coach. I'm ready when you are. Please type 'Start' to begin." }
   ]);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [domain, setDomain] = useState('');
-  const [step, setStep] = useState<0 | 1 | 2>(0);
+  const [input, setInput]           = useState('');
+  const [isLoading, setIsLoading]   = useState(false);
+  const [domain, setDomain]         = useState('');
+  const [step, setStep]             = useState<0 | 1 | 2>(0);
   const [difficulty, setDifficulty] = useState('Medium');
+  const [inputFocused, setInputFocused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef  = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -38,7 +46,10 @@ export const SmartKoachPage = () => {
 
     if (step === 0) {
       setTimeout(() => {
-        setMessages(prev => [...prev, { id: Date.now().toString(), sender: 'ai', text: "Great! Which subject would you like to practice? (e.g., DSA, ML, DBMS, OS, English, Botany, Math)" }]);
+        setMessages(prev => [...prev, {
+          id: Date.now().toString(), sender: 'ai',
+          text: "Great! Which subject would you like to practice?\n\nFor example: DSA, Machine Learning, DBMS, Operating Systems, System Design, English, Math…"
+        }]);
         setStep(1);
         setIsLoading(false);
       }, 500);
@@ -48,184 +59,310 @@ export const SmartKoachPage = () => {
     if (step === 1) {
       setDomain(userText);
       setStep(2);
-      
       const initialMessage = `I want to practice ${userText}. Please ask me the first question.`;
-      
       try {
         const response = await fetch('http://127.0.0.1:8000/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: initialMessage, domain: userText, difficulty }),
         });
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) throw new Error('Network error');
         const data = await response.json();
         setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), sender: 'ai', text: data.reply }]);
-      } catch (error) {
-        console.error('Error in chat:', error);
-        setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), sender: 'ai', text: "Sorry, I'm having trouble connecting to the server. Please ensure the backend is running and OPENAI_API_KEY is configured." }]);
-      } finally {
-        setIsLoading(false);
-      }
+      } catch {
+        setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), sender: 'ai', text: "Sorry, I'm having trouble connecting. Please ensure the backend is running." }]);
+      } finally { setIsLoading(false); }
       return;
     }
 
     try {
       const response = await fetch('http://127.0.0.1:8000/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userText,
-          domain: domain,
-          difficulty: difficulty
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, domain, difficulty }),
       });
-
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error('Network error');
       const data = await response.json();
-
-      const aiMessage: Message = { id: (Date.now() + 1).toString(), sender: 'ai', text: data.reply };
-      setMessages(prev => [...prev, aiMessage]);
-    } catch (error) {
-      console.error('Error in chat:', error);
-      const errorMessage: Message = { id: (Date.now() + 1).toString(), sender: 'ai', text: "Sorry, I'm having trouble connecting to the server. Please ensure the backend is running and OPENAI_API_KEY is configured." };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
-    }
+      setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), sender: 'ai', text: data.reply }]);
+    } catch {
+      setMessages(prev => [...prev, { id: (Date.now() + 1).toString(), sender: 'ai', text: "Sorry, I'm having trouble connecting. Please ensure the backend is running." }]);
+    } finally { setIsLoading(false); }
   };
 
   const handleReset = async () => {
     setIsLoading(true);
     try {
       await fetch('http://127.0.0.1:8000/reset', { method: 'POST' });
-      setMessages([{ id: Date.now().toString(), sender: 'ai', text: "Conversation reset! Please type 'Start' to begin a new interview." }]);
+      setMessages([{ id: Date.now().toString(), sender: 'ai', text: "Session reset! Type 'Start' to begin a new interview." }]);
       setStep(0);
       setDomain('');
-    } catch (error) {
-      console.error('Error resetting chat:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    } catch { /* silent */ } finally { setIsLoading(false); }
   };
 
+  const diffStyle = DIFFICULTY_COLORS[difficulty] ?? DIFFICULTY_COLORS.Medium;
+
   return (
-    <div className="min-h-screen relative selection:bg-pink-500/30 overflow-hidden bg-gray-50/50">
-      {/* Colorful background elements */}
-      <div className="fixed top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-pink-400/20 blur-[100px] pointer-events-none" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] rounded-full bg-cyan-400/20 blur-[100px] pointer-events-none" />
-      <div className="fixed top-[40%] left-[30%] w-[30vw] h-[30vw] rounded-full bg-violet-400/10 blur-[80px] pointer-events-none" />
-      
-      <main className="container mx-auto px-4 py-8 flex flex-col items-center h-screen relative z-10 max-h-screen">
-        
-        {/* Header Section */}
-        <div className="w-full max-w-4xl flex items-center justify-between mb-8">
-          <button 
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-gray-500 hover:text-gray-900 font-medium transition-colors"
+    <div
+      className="min-h-screen w-full flex flex-col relative overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4c1d95 55%, #7c3aed 80%, #be185d 100%)' }}
+    >
+      {/* Decorative mesh orbs */}
+      <div className="fixed top-[-15%] left-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="fixed bottom-[-10%] right-[-10%] w-[45vw] h-[45vw] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%)', filter: 'blur(70px)' }} />
+      <div className="fixed top-[40%] right-[10%] w-[30vw] h-[30vw] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      {/* ── Top bar ── */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="w-full px-6 py-4 flex items-center justify-between relative z-10"
+        style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', background: 'rgba(15,10,60,0.55)', backdropFilter: 'blur(16px)' }}
+      >
+        {/* Left: back */}
+        <motion.button
+          onClick={() => navigate('/')}
+          whileHover={{ x: -2 }}
+          whileTap={{ scale: 0.96 }}
+          className="flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
+        >
+          <ArrowLeft size={17} />
+          Back
+        </motion.button>
+
+        {/* Centre: title */}
+        <div className="flex items-center gap-2.5">
+          <div
+            className="w-8 h-8 rounded-xl flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
           >
-            <ArrowLeft size={20} />
-            <span>Back to Recommendations</span>
-          </button>
-          
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-md border border-gray-200 shadow-sm cursor-default">
-            <Bot className="w-5 h-5 text-pink-500" />
-            <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-600">AI Interview Coach</span>
+            <Bot size={16} className="text-white" />
+          </div>
+          <div>
+            <span className="text-sm font-bold text-white">SmartKoach</span>
+            <span className="text-xs text-indigo-300 ml-2 font-medium">AI Interview Coach</span>
           </div>
         </div>
 
-        {/* Chat Container */}
-        <motion.div 
+        {/* Right: difficulty + reset */}
+        <div className="flex items-center gap-3">
+          {/* Difficulty pill selector */}
+          <div className="relative">
+            <select
+              value={difficulty}
+              onChange={(e) => setDifficulty(e.target.value)}
+              className="appearance-none text-xs font-semibold pl-6 pr-7 py-1.5 rounded-full outline-none cursor-pointer transition-all"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                color: '#fff',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+            {/* Coloured dot + chevron overlays */}
+            <span
+              className="absolute left-2.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full pointer-events-none"
+              style={{ background: diffStyle.dot }}
+            />
+            <ChevronDown
+              size={11}
+              className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
+              style={{ color: diffStyle.text }}
+            />
+          </div>
+
+          {/* Reset */}
+          <motion.button
+            onClick={handleReset}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full text-gray-600 hover:text-gray-900 transition-colors"
+            style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)', color: 'white' }}
+          >
+            <RotateCcw size={13} />
+            Reset
+          </motion.button>
+        </div>
+      </motion.div>
+
+      {/* ── Chat column ── */}
+      <div className="flex-1 flex flex-col items-center px-4 py-6 overflow-hidden">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-full max-w-4xl flex-1 bg-white/70 backdrop-blur-xl border border-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex flex-col overflow-hidden"
+          transition={{ duration: 0.45, delay: 0.1 }}
+          className="w-full flex flex-col overflow-hidden relative z-10"
+          style={{
+            maxWidth: '860px',
+            height: 'calc(100vh - 130px)',
+            background: 'rgba(255,255,255,0.07)',
+            borderRadius: '20px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            backdropFilter: 'blur(20px)',
+          }}
         >
-          {/* Settings Bar */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-white/50">
-            <div className="flex gap-4">
-              <div className="flex flex-col">
-                <label className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-1">Difficulty</label>
-                <select 
-                  value={difficulty} 
-                  onChange={(e) => setDifficulty(e.target.value)}
-                  className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-semibold text-gray-800 outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 appearance-none min-w-[120px] shadow-sm cursor-pointer"
-                >
-                  <option value="Easy">Easy</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Hard">Hard</option>
-                </select>
-              </div>
-            </div>
-            
-            <button 
-              onClick={handleReset}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl transition-all shadow-sm"
+
+          {/* Status strip — shows domain + step */}
+          {domain && (
+            <div
+              className="flex items-center gap-2 px-5 py-2.5 text-xs font-medium"
+              style={{
+                borderBottom: '1px solid rgba(255,255,255,0.1)',
+                background: 'linear-gradient(135deg, rgba(99,102,241,0.4), rgba(139,92,246,0.35))',
+                color: '#e0e7ff',
+              }}
             >
-              <RotateCcw size={16} />
-              Reset Session
-            </button>
+              <Zap size={12} />
+              Practising <strong className="mx-1">{domain}</strong> · Difficulty: <strong className="ml-1">{difficulty}</strong>
+            </div>
+          )}
+
+          {/* Messages scroll area */}
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto px-6 py-6"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.15) transparent' }}
+          >
+            <div className="flex flex-col gap-5">
+              <AnimatePresence initial={false}>
+                {messages.map((msg) => (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    className={`flex items-end gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}
+                  >
+                    {/* Avatar */}
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={
+                        msg.sender === 'ai'
+                          ? { background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', boxShadow: '0 2px 8px rgba(99,102,241,0.3)' }
+                          : { background: 'linear-gradient(135deg, #0ea5e9, #6366f1)', boxShadow: '0 2px 8px rgba(14,165,233,0.3)' }
+                      }
+                    >
+                      {msg.sender === 'ai'
+                        ? <Bot size={15} className="text-white" />
+                        : <User size={15} className="text-white" />
+                      }
+                    </div>
+
+                    {/* Bubble */}
+                    <div
+                      className="px-5 py-3.5 text-sm leading-relaxed whitespace-pre-wrap"
+                      style={{
+                        maxWidth: '72%',
+                        borderRadius: msg.sender === 'ai' ? '18px 18px 18px 4px' : '18px 18px 4px 18px',
+                        ...(msg.sender === 'ai'
+                          ? {
+                              background: 'rgba(255,255,255,0.12)',
+                              color: '#f1f5f9',
+                              border: '1px solid rgba(255,255,255,0.12)',
+                              backdropFilter: 'blur(8px)',
+                            }
+                          : {
+                              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                              color: '#ffffff',
+                              boxShadow: '0 4px 16px rgba(99,102,241,0.4)',
+                            }),
+                      }}
+                    >
+                      {msg.text}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+
+              {/* Typing indicator */}
+              {isLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-end gap-3"
+                >
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6)' }}
+                  >
+                    <Bot size={15} className="text-white" />
+                  </div>
+                  <div
+                    className="flex items-center gap-1.5 px-4 py-3.5 rounded-[18px] rounded-bl-[4px]"
+                    style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(8px)' }}
+                  >
+                    {[0, 150, 300].map((delay) => (
+                      <span
+                        key={delay}
+                        className="w-2 h-2 rounded-full animate-bounce"
+                        style={{ background: '#c4b5fd', animationDelay: `${delay}ms` }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </div>
           </div>
 
-          {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-transparent" ref={scrollRef}>
-            {messages.map((msg) => (
-              <div key={msg.id} className={`flex gap-4 ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm ${
-                  msg.sender === 'ai' 
-                    ? 'bg-gradient-to-br from-pink-100 to-rose-100 text-pink-600 border border-pink-200' 
-                    : 'bg-gradient-to-br from-cyan-100 to-blue-100 text-cyan-700 border border-cyan-200'
-                }`}>
-                  {msg.sender === 'ai' ? <Bot size={20} /> : <User size={20} />}
-                </div>
-                <div className={`max-w-[80%] px-5 py-4 text-base whitespace-pre-wrap leading-relaxed shadow-sm ${
-                  msg.sender === 'user'
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl rounded-tr-sm'
-                    : 'bg-white text-gray-800 border border-gray-100 rounded-2xl rounded-tl-sm shadow-md'
-                }`}>
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-100 to-rose-100 text-pink-600 border border-pink-200 flex items-center justify-center shadow-sm">
-                  <Bot size={20} />
-                </div>
-                <div className="bg-white text-gray-800 border border-gray-100 rounded-2xl rounded-tl-sm px-6 py-5 flex items-center gap-2 shadow-md">
-                  <span className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Input Area */}
-          <div className="p-6 border-t border-gray-100 bg-white/50 backdrop-blur-md">
-            <div className="relative flex items-center max-w-4xl mx-auto">
+          {/* ── Input area ── */}
+          <div
+            className="px-5 py-4"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.2)', backdropFilter: 'blur(8px)' }}
+          >
+            <motion.div
+              animate={{
+                boxShadow: inputFocused
+                  ? '0 0 0 3px rgba(99,102,241,0.2), 0 2px 12px rgba(0,0,0,0.06)'
+                  : '0 1px 4px rgba(0,0,0,0.06)',
+              }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center gap-3 rounded-2xl px-4 py-2"
+              style={{
+                background: 'rgba(255,255,255,0.08)',
+                border: inputFocused ? '1.5px solid rgba(167,139,250,0.7)' : '1.5px solid rgba(255,255,255,0.12)',
+                transition: 'border-color 0.2s ease',
+              }}
+            >
               <input
+                ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Type your answer or ask for a question..."
-                className="w-full bg-white border border-gray-200 hover:border-gray-300 focus:border-pink-400 focus:ring-1 focus:ring-pink-400 rounded-2xl py-4 pl-6 pr-16 text-base text-gray-900 placeholder-gray-400 outline-none transition-all shadow-sm"
+                onFocus={() => setInputFocused(true)}
+                onBlur={() => setInputFocused(false)}
+                placeholder="Type your answer…"
+                disabled={isLoading}
+                className="flex-1 bg-transparent outline-none text-sm text-white placeholder-white/40 py-2"
               />
-              <button 
+              <motion.button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="absolute right-3 p-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 text-white rounded-xl transition-all shadow-md"
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-white transition-all"
+                style={{
+                  background: input.trim() && !isLoading
+                    ? 'linear-gradient(135deg, #6366f1, #8b5cf6)'
+                    : 'rgba(0,0,0,0.08)',
+                  boxShadow: input.trim() && !isLoading ? '0 2px 10px rgba(99,102,241,0.35)' : 'none',
+                  transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                }}
               >
-                <Send size={20} />
-              </button>
-            </div>
-            <p className="text-center text-[11px] text-gray-400 mt-4 font-medium">
-              SmartKoach can make mistakes. Consider verifying important technical details.
+                <Send size={15} style={{ color: input.trim() && !isLoading ? '#fff' : '#9ca3af' }} />
+              </motion.button>
+            </motion.div>
+
+            <p className="text-center text-[11px] text-white/30 mt-2.5 font-medium">
+              SmartKoach may make mistakes — verify important technical details independently.
             </p>
           </div>
+
         </motion.div>
-      </main>
+      </div>
     </div>
   );
 };
