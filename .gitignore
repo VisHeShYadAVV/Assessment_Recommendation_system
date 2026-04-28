@@ -1,6 +1,23 @@
-Backend/.env 
-.env 
-Backend/.env 
-.env 
-Backend/.env 
-.env 
+# Environment variables
+Backend/.env
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Node
+node_modules/
+dist/
+.next/
+
+# Build artifacts
+*.egg-info/
+.dist/
